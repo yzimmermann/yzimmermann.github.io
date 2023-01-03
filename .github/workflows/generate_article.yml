@@ -1,0 +1,30 @@
+name: Generate Article
+
+on:
+  schedule:
+    - cron: "0 */5 * * *"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python 3.8
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+      - name: Install dependencies
+        run: |
+          python -m pip install openai
+          python -m pip install markdown
+          python -m pip install tweepy
+      - name: Generate article
+        run: |
+            python main.py ${{ secrets.TWITTER_CONSUMER_KEY }} ${{ secrets.TWITTER_CONSUMER_SECRET }} ${{ secrets.TWITTER_ACCESS_TOKEN }} ${{ secrets.TWITTER_ACCESS_TOKEN_SECRET }} ${{ secrets.OPENAI_API_KEY }}
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "yzimmermann@ethz.ch"
+          git config --local user.name "yzimmermann"
+          git add article.md
+          git commit -m "Generate new article"
+          git push origin main
