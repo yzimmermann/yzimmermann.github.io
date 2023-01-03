@@ -30,8 +30,9 @@ jobs:
           git config --local user.email "yzimmermann@ethz.ch"
           git config --local user.name "yzimmermann"
           git add article.md
-          git mv article.md $trend_top.md
-          echo "include: ["$trend_top.md"]" >> _config.yml
+          RANDOM_NAME=random-$(date +%s)-$RANDOM
+          git mv article.md $RANDOM_NAME.md
+          echo "include: ["$RANDOM_NAME"]" >> _config.yml
           git add _config.yml
-          git commit -m "Generate new article with topic $trend_top"
+          git commit -m "Generate new article with trending topic"
           git push origin main
