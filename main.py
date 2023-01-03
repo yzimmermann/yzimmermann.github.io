@@ -17,7 +17,7 @@ api = tweepy.API(auth)
 ny_woeid = 2459115
 
 # Fetch the top Twitter trend in New York, USA
-trends = api.trends_place(ny_woeid)
+trends = api.get_place_trends(ny_woeid)
 trends_list = trends[0]["trends"]
 top_trend = trends_list[0]["name"]
 
