@@ -2,6 +2,11 @@ import openai
 import markdown
 import tweepy
 import sys
+import pytrends
+
+from pytrends.request import TrendReq
+pytrends = TrendReq(hl='en-US', tz=360)
+
 
 # Authenticate with the Twitter API
 consumer_key = sys.argv[1]
@@ -13,20 +18,9 @@ openai_api_key = sys.argv[5]
 auth = tweepy.OAuth1UserHandler(consumer_key, consumer_secret, access_token, access_token_secret)
 api = tweepy.API(auth)
 
-# Set the latitude and longitude for New York, USA
-ny_lat = 40.7128
-ny_long = -74.0060
-
-# Search for tweets that contain trend hashtags within the given latitude and longitude
-trends_response = api.search_tweets(query="#", geocode=f"{ny_lat},{ny_long},50km", tweet.volume_info)
-
-# Find the trend with the highest tweet volume
-top_trend = None
-max_tweet_volume = 0
-for trend in trends_response["trends"]:
-    if trend["tweet_volume"] is not None and trend["tweet_volume"] > max_tweet_volume:
-        top_trend = trend["name"]
-        max_tweet_volume = trend["tweet_volume"]
+# Fetch the top trending topic
+trends_response = pytrends.trending_searches()
+top_trend = trends_response[0]["title"]
 
 
 # Use the OpenAI API to generate a piece of text on the top Twitter trend
