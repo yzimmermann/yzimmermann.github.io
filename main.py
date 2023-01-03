@@ -13,8 +13,16 @@ openai_api_key = sys.argv[5]
 auth = tweepy.OAuth1UserHandler(consumer_key, consumer_secret, access_token, access_token_secret)
 api = tweepy.API(auth)
 
-# Fetch the top Twitter trend
-trends = api.trends_place(1)
+# Get the WOEID for New York, USA
+places_response = api.trends_available()
+ny_woeid = None
+for place in places_response:
+    if place["name"] == "New York":
+        ny_woeid = place["woeid"]
+        break
+
+# Fetch the top Twitter trend in New York, USA
+trends = api.trends_place(ny_woeid)
 trends_list = trends[0]["trends"]
 top_trend = trends_list[0]["name"]
 
