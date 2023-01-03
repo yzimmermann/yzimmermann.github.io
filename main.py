@@ -3,11 +3,11 @@ import markdown
 import tweepy
 
 # Authenticate with the Twitter API
-consumer_key = secrets.TWITTER_CONSUMER_KEY
-consumer_secret = secrets.TWITTER_CONSUMER_SECRET
-access_token = secrets.TWITTER_ACCESS_TOKEN
-access_token_secret = secrets.TWITTER_ACCESS_TOKEN_SECRET
-openai_api_key = secrets.OPENAI_API_KEY
+consumer_key = sys.argv[1]
+consumer_secret = sys.argv[2]
+access_token = sys.argv[3]
+access_token_secret = sys.argv[4]
+openai_api_key = sys.argv[5]
 
 auth = tweepy.OAuth1UserHandler(consumer_key, consumer_secret, access_token, access_token_secret)
 api = tweepy.API(auth)
