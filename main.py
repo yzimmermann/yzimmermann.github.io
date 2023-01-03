@@ -25,8 +25,8 @@ top_trend = trends_response[0][0]
 
 
 # Use the OpenAI API to generate a piece of text on the top Twitter trend
-prompt = f"Write an article that is at least 500 words long on the top Google Search trend: {top_trend}"
-model = "text-davinci-002"
+prompt = f"Write a comprehensive article that is at least 500 words long on the topic: {top_trend}"
+model = "text-davinci-003"
 completions = openai.Completion.create(engine=model, prompt=prompt, max_tokens=2048, n=1,stop=None,temperature=0.5)
 article_text = completions.choices[0].text
 
