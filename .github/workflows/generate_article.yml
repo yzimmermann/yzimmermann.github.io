@@ -27,8 +27,7 @@ jobs:
       - name: Set file name
         id: filename
         run: |
-          TREND=$(head -n 1 article.md | cut -c 3- | tr -dc '[:alnum:]-')
-          echo "::set-output name=filename::${TREND}.md"
+          echo "::set-output name=filename::${trend_top}.md"
       - name: Commit and push changes
         run: |
           git config --local user.email "yzimmermann@ethz.ch"
