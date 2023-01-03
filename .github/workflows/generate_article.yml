@@ -34,7 +34,7 @@ jobs:
           git config --local user.name "yzimmermann"
           git add article.md
           git mv article.md "${{ steps.filename.outputs.filename }}"
-          echo "include: [filename.md]" >> _config.yml
+          echo "include: ["${{ steps.filename.outputs.filename }}"]" >> _config.yml
           git add _config.yml
           git commit -m "Generate new article"
           git push origin main
