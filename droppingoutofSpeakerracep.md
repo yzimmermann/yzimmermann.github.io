@@ -1,0 +1,5 @@
+<p>dropping out of Speaker race</p>
+<p>Kevin McCarthy, the current House Majority Leader, has announced that he is dropping out of the race to be the next Speaker of the House. McCarthy made the announcement in a closed-door meeting with House Republicans, according to multiple sources.</p>
+<p>This is a major development in the race for Speaker, as McCarthy was widely seen as the frontrunner. His announcement comes as a surprise to many, and it is not yet clear who will replace him as the top candidate.</p>
+<p>The announcement comes as Republicans are facing increasing pressure to choose a new Speaker after current Speaker Paul Ryan announced that he will not seek re-election in November. Ryan's retirement has created a power vacuum within the party, and it is not yet clear who will be able to fill it.</p>
+<p>McCarthy's withdrawal from the Speaker race is sure to create more uncertainty within the party. It is not yet clear who will replace him as the top candidate, but it is clear that the race for Speaker just got a lot more interesting.</p>
