@@ -14,9 +14,9 @@ auth = tweepy.OAuth1UserHandler(consumer_key, consumer_secret, access_token, acc
 api = tweepy.API(auth)
 
 # Get the WOEID for New York, USA
-places_response = api.trends_available()
+places_response = api.geo_search(query="New York")
 ny_woeid = None
-for place in places_response:
+for place in places_response["result"]["places"]:
     if place["name"] == "New York":
         ny_woeid = place["woeid"]
         break
@@ -25,6 +25,7 @@ for place in places_response:
 trends = api.trends_place(ny_woeid)
 trends_list = trends[0]["trends"]
 top_trend = trends_list[0]["name"]
+
 
 # Use the OpenAI API to generate a piece of text on the top Twitter trend
 prompt = f"Write an article on the top Twitter trend: {top_trend}"
