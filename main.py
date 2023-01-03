@@ -20,7 +20,7 @@ api = tweepy.API(auth)
 
 # Fetch the top trending topic
 trends_response = pytrends.trending_searches()
-top_trend = trends_response[0]["title"]
+top_trend = trends_response[0][0]
 
 
 # Use the OpenAI API to generate a piece of text on the top Twitter trend
