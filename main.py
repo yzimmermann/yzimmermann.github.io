@@ -38,8 +38,8 @@ article = completion.choices[0].text
 
 
 # Set the repository and branch where the article will be published
-repo = "YOUR_USERNAME/YOUR_REPO_NAME"
-branch = "gh-pages"
+repo = "yzimmermann/yzimmermann.github.io"
+branch = "main"
 
 # Set the file name and content for the article
 file_name = f"{trend}.html"
