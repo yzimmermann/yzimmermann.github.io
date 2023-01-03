@@ -14,12 +14,7 @@ auth = tweepy.OAuth1UserHandler(consumer_key, consumer_secret, access_token, acc
 api = tweepy.API(auth)
 
 # Get the WOEID for New York, USA
-places_response = api.geo_search(query="New York")
-ny_woeid = None
-for place in places_response["result"]["places"]:
-    if place["name"] == "New York":
-        ny_woeid = place["woeid"]
-        break
+ny_woeid = 2459115
 
 # Fetch the top Twitter trend in New York, USA
 trends = api.trends_place(ny_woeid)
