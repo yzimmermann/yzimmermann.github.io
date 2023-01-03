@@ -4,6 +4,7 @@ import tweepy
 import sys
 import pytrends
 
+#Initialize pytrends
 from pytrends.request import TrendReq
 pytrends = TrendReq(hl='en-US', tz=360)
 
