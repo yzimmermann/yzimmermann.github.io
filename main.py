@@ -1,6 +1,7 @@
 import openai
 import markdown
 import tweepy
+import sys
 
 # Authenticate with the Twitter API
 consumer_key = sys.argv[1]
