@@ -28,8 +28,8 @@ jobs:
           echo "::set-output name=filename::${TREND}.md"
       - name: Commit and push changes
         run: |
-          git config --local user.email "your@email.com"
-          git config --local user.name "Your Name"
+          git config --local user.email "yzimmermann@ethz.ch"
+          git config --local user.name "yzimmermann"
           git mv article.md "${{ steps.filename.outputs.filename }}"
           git add "${{ steps.filename.outputs.filename }}"
           git commit -m "Generate new article"
