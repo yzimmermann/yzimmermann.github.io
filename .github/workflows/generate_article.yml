@@ -33,7 +33,7 @@ jobs:
         run: |
           git config --local user.email "yzimmermann@ethz.ch"
           git config --local user.name "yzimmermann"
+          git add article.md
           git mv article.md "${{ steps.filename.outputs.filename }}"
-          git add "${{ steps.filename.outputs.filename }}"
           git commit -m "Generate new article"
           git push origin main
