@@ -1,9 +1,8 @@
 name: Generate Article
 
 on:
-  push:
-    branches:
-      - main
+  schedule:
+    - cron: "0 */5 * * *"
 
 jobs:
   build:
@@ -32,7 +31,7 @@ jobs:
           git add article.md
           RANDOM_NAME=random-$(date +%s)-$RANDOM
           git mv article.md $RANDOM_NAME.md
-          echo "-$RANDOM_NAME.md" >> _config.yml
+          echo "  -$RANDOM_NAME.md" >> _config.yml
           git add _config.yml
           git commit -m "Generate new article with trending topic"
           git push origin main
