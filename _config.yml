@@ -6,7 +6,7 @@ plugins:
   - jekyll-feed
   - jekyll-include-cache
 paginate: 5  
-theme: minima
+
 relative_links:
   enabled: true
   collections: true
