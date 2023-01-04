@@ -18,11 +18,10 @@ jobs:
           python -m pip install openai
           python -m pip install markdown
           python -m pip install pytrends
-          python -m pip install tweepy
 
       - name: Generate article
         run: |
-            python main.py ${{ secrets.TWITTER_CONSUMER_KEY }} ${{ secrets.TWITTER_CONSUMER_SECRET }} ${{ secrets.TWITTER_ACCESS_TOKEN }} ${{ secrets.TWITTER_ACCESS_TOKEN_SECRET }} ${{ secrets.OPENAI_API_KEY }}
+            python main.py ${{ secrets.OPENAI_API_KEY }}
 
       - name: Commit and push changes
         run: |
@@ -30,8 +29,6 @@ jobs:
           git config --local user.name "yzimmermann"
           git add article.md
           RANDOM_NAME=random-$(date +%s)-$RANDOM
-          git mv article.md $RANDOM_NAME.md
-          echo "  -$RANDOM_NAME.md" >> _config.yml
-          git add _config.yml
+          git mv article.md _pages/$RANDOM_NAME.md
           git commit -m "Generate new article with trending topic"
           git push origin main
