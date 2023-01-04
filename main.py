@@ -28,6 +28,10 @@ md = markdown.markdown(article_text)
 
 # Write the markdown text to an .md file
 with open("article.md", "w") as file:
+    file.write("---\n")
+    file.write("layout: post\n")
+    file.write(f"title: {top_trend}\n")
+    file.write("---\n\n")    
     file.write(md)
 
 print("Article successfully generated and saved to article.md!")
