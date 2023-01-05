@@ -29,7 +29,7 @@ jobs:
           git config --local user.name "yzimmermann"
           git pull origin main
           git add article.md
-          RANDOM_NAME=random-$(date +%s)-$RANDOM
+          RANDOM_NAME=$(date -I)-random-$RANDOM
           git mv article.md $RANDOM_NAME.md
           git mv $RANDOM_NAME.md _posts/$RANDOM_NAME.md
           git commit -m "Generate new article with trending topic"
