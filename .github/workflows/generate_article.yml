@@ -27,6 +27,7 @@ jobs:
         run: |
           git config --local user.email "yzimmermann@ethz.ch"
           git config --local user.name "yzimmermann"
+          git pull origin main
           git add article.md
           RANDOM_NAME=random-$(date +%s)-$RANDOM
           git mv article.md $RANDOM_NAME.md
