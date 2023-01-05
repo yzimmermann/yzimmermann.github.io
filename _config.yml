@@ -84,3 +84,4 @@ exclude:
   - LICENSE
   - CNAME
   - README.md
+  - main.py
