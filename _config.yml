@@ -12,5 +12,5 @@ relative_links:
   collections: true
   
 include:
-  -/_pages
+  -/_posts
 
